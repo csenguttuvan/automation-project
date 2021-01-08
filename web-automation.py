@@ -24,7 +24,7 @@ username = driver.find_element_by_xpath('//*[@id="okta-signin-username"]')
 password = driver.find_element_by_xpath('//*[@id="okta-signin-password"]')
 
 #sends the username and password to the respective fields on the web page
-username.send_keys('ADM.ChrisS@kaltura.com')
+username.send_keys('email')
 password.send_keys('pass')
 #checks the 'remember me' check box and clicks 'Sign In'
 rememberMe = driver.find_element_by_xpath('//*[@id="form1"]/div[1]/div[2]/div[3]/div/span/div/label').click()
@@ -45,7 +45,7 @@ driver.switch_to_window("tab2")
 driver.get('https://admin.microsoft.com/Adminportal')
 time.sleep(1)
 microsoftEmail = driver.find_element_by_xpath('//*[@id="i0116"]')
-microsoftEmail.send_keys('ADM.ChrisS@kaltura.com')
+microsoftEmail.send_keys('email')
 microsoftNext = driver.find_element_by_xpath('//*[@id="idSIButton9"]').click()
 delay = 3
 try:
@@ -55,7 +55,7 @@ except TimeoutException:
     print ("Loading took too much time!")
 username = driver.find_element_by_xpath('//*[@id="okta-signin-username"]')
 username.clear()
-username.send_keys('ADM.ChrisS@kaltura.com')
+username.send_keys('email')
 password = driver.find_element_by_xpath('//*[@id="okta-signin-password"]')
 password.send_keys('pass')
 signinButton = driver.find_element_by_xpath('//*[@id="okta-signin-submit"]').click()
@@ -70,7 +70,7 @@ try:
 except TimeoutException:
     print ("Loading took too much time!")
 githubUsername = driver.find_element_by_xpath('//*[@id="login_field"]')
-githubUsername.send_keys('corporate-it@kaltura.com')
+githubUsername.send_keys('email')
 githubPassword = driver.find_element_by_xpath('//*[@id="password"]')
 githubPassword.send_keys('pass')
 githubSignIn = driver.find_element_by_xpath('//*[@id="login"]/div[4]/form/input[14]').click()
