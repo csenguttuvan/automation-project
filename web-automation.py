@@ -1,6 +1,8 @@
 from selenium import webdriver
-#Imports wendriver from Selenium
+#Imports webdriver from Selenium
 from  selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
+
 
 import time
 # Imports time module
@@ -24,4 +26,7 @@ time.sleep(5)
 #waits for 5 sec
 sendPushButton = driver.find_element_by_xpath('//*[@id="form8"]/div[2]/input').click()
 sendPushCheckBox = driver.find_element_by_xpath('//*[@id="okta-sign-in"]/div[2]/div/div/span/div/label').click()
-#doNotChallengeCheckBox = driver.find_element_by_xpath('//*[@id="okta-sign-in"]/div[2]/div/div/span[2]/div/label').click()
+
+driver.execute_script("window.open('about:blank', 'tab2');")
+driver.switch_to_window("tab2")
+driver.get('https://admin.microsoft.com/Adminportal')
