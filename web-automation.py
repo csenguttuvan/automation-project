@@ -1,10 +1,13 @@
 from selenium import webdriver
 #Imports wendriver from Selenium
+from  selenium.webdriver.chrome.options import Options
+
 import time
 # Imports time module
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument("--incognito")
 
-
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(chrome_options=chrome_options)
 #Using webdriver for chrome
 driver.get('https://kaltura.okta.com')
 #Will open kaltura.okta.com on chrome
@@ -21,4 +24,4 @@ time.sleep(5)
 #waits for 5 sec
 sendPushButton = driver.find_element_by_xpath('//*[@id="form8"]/div[2]/input').click()
 sendPushCheckBox = driver.find_element_by_xpath('//*[@id="okta-sign-in"]/div[2]/div/div/span/div/label').click()
-doNotChallengeCheckBox = driver.find_element_by_xpath('//*[@id="okta-sign-in"]/div[2]/div/div/span[2]/div/label').click()
+#doNotChallengeCheckBox = driver.find_element_by_xpath('//*[@id="okta-sign-in"]/div[2]/div/div/span[2]/div/label').click()
