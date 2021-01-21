@@ -1,6 +1,3 @@
-//Define my variables
-def 
-
 pipeline {
     environment {
         process1 = "sudo apt-get update && sudo apt-get upgrade" //defining the variable
@@ -39,4 +36,4 @@ pipeline {
             }
         }
     }
-}
+}git 
