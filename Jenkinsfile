@@ -1,8 +1,10 @@
+//Define my variables
+def process1 = "sudo apt-get update && sudo apt-get upgrade" //defining the variable
+
 pipeline {
 
     agent any
-    def process1 = 'sudo apt-get update && sudo apt-get upgrade'
-    
+      
     stages {
 
         stage("Build and Compiling") {
@@ -16,7 +18,7 @@ pipeline {
 
             steps {
                 echo 'Testing code for faults ...'
-                sh process1
+                sh ${process1}
                 sh 'exit 1'
                 sh 'cd /home/ubuntu && sudo mkdir pipeline2 && cd pipeline2 && sudo touch sucess'
                 sh 'echo "${env.BUILD_ID} on ${env.JENKINS_URL} is successful" >> /home/ubuntu/pipeline2/sucess'
