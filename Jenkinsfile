@@ -16,7 +16,7 @@ pipeline {
             steps {
                 echo 'Testing code for faults ...'
                 sh 'sudo apt-get update && sudo apt-get upgrade'
-                sh 'cd /home/ubuntu && mkdir pipeline && cd pipeline && touch sucess'
+                sh 'cd /home/ubuntu && sudo mkdir pipeline && cd pipeline && touch sucess'
                 sh "echo ${env.BUILD_ID} on ${env_JENKINS_URL} is successful >> /home/ubuntu/pipeline/sucess"
                 echo "Test succesfully run on ${env.BUILD_URL}"
 
