@@ -1,7 +1,11 @@
 //Define my variables
-def process1 = "sudo apt-get update && sudo apt-get upgrade" //defining the variable
+def 
 
 pipeline {
+    environment {
+        process1 = "sudo apt-get update && sudo apt-get upgrade" //defining the variable
+
+    }
 
     agent any
       
