@@ -1,9 +1,4 @@
 pipeline {
-    environment {
-        process1 = "sudo apt-get update && sudo apt-get upgrade" //defining the variable
-
-    }
-
     agent any
       
     stages {
@@ -19,8 +14,7 @@ pipeline {
 
             steps {
                 echo 'Testing code for faults ...'
-                sh ${process1}
-                sh 'exit 1'
+                sh 'sudo apt-get update && sudo apt-get upgrade'
                 sh 'cd /home/ubuntu && sudo mkdir pipeline2 && cd pipeline2 && sudo touch sucess'
                 sh 'echo "${env.BUILD_ID} on ${env.JENKINS_URL} is successful" >> /home/ubuntu/pipeline2/sucess'
                     
@@ -32,8 +26,8 @@ pipeline {
         stage("Deploy") {
 
             steps {
-                echo "Deploying to staging to ${env.NODE_NAME}"
+                echo "Deploying to staging to ${env.NODE_NAME} >> /home/ubuntu/pipeline2/sucess"
             }
         }
     }
-}git 
+}
