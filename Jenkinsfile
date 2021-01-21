@@ -14,8 +14,12 @@ pipeline {
         stage("Test") {
 
             steps {
-                sh 'mkdir jenkinstest'
                 echo 'Testing code for faults ...'
+                sh 'apt-get update && apt-get upgrade'
+                sh 'cd /home/ubuntu && mkdir pipeline && cd pipeline && touch sucess'
+                sh "echo ${env.BUILD_ID} on ${env_JENKINS_URL} is successful"
+                echo "Test succesfully run on ${env.BUILD_URL}"
+
             }
         }
 
@@ -26,5 +30,4 @@ pipeline {
             }
         }
     }
-
 }
