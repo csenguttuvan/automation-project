@@ -7,7 +7,7 @@ pipeline {
         stage("Build and Compiling") {
 
             steps {
-                echo 'Building and compiling code ...'
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"  //echoes build number and Jenkins URl with the given Evniromental variables
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
         stage("Deploy") {
 
             steps {
-                echo 'Deploying to staging Env ...'
+                echo "Deploying to staging to ${env.NODE_NAME}"
             }
         }
     }
