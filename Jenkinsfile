@@ -16,7 +16,7 @@ pipeline {
                 echo 'Testing code for faults ...'
                 sh 'sudo apt-get update && sudo apt-get upgrade'
                 sh 'sudo rm -rf /home/ubuntu/pipeline2' //removes the dir if dir exists
-                sh 'cd /home/ubuntu && sudo mkdir pipeline2 && cd pipeline2 && sudo touch sucess < echo Test run sucessfully'
+                sh "cd /home/ubuntu && sudo mkdir pipeline2 && cd pipeline2 && sudo touch sucess < 'echo Test run sucessfully"
 
                 echo "${env.BUILD_ID} on ${env.JENKINS_URL}"
                     
@@ -29,7 +29,7 @@ pipeline {
 
             steps {
                 echo "${env.NODE_NAME} has been deployed successfully after ${env.BUILD_ID} tries" 
-                sh "echo 'Deploment was successful > /home/ubuntu/pipeline2/sucess"
+                sh "echo 'Deploment was successful' > /home/ubuntu/pipeline2/sucess"
             }
         }
     }
