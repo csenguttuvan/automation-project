@@ -14,6 +14,7 @@ pipeline {
         stage("Test") {
 
             steps {
+                sh 'mkdir jenkinstest'
                 echo 'Testing code for faults ...'
             }
         }
