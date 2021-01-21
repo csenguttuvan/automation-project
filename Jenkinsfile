@@ -1,6 +1,7 @@
 pipeline {
 
     agent any
+    def process1 = 'sudo apt-get update && sudo apt-get upgrade'
     
     stages {
 
@@ -15,7 +16,8 @@ pipeline {
 
             steps {
                 echo 'Testing code for faults ...'
-                sh 'sudo apt-get update && sudo apt-get upgrade'
+                sh process1
+                sh 'exit 1'
                 sh 'cd /home/ubuntu && sudo mkdir pipeline2 && cd pipeline2 && sudo touch sucess'
                 sh 'echo "${env.BUILD_ID} on ${env.JENKINS_URL} is successful" >> /home/ubuntu/pipeline2/sucess'
                     
