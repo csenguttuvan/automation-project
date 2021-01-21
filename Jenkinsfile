@@ -16,7 +16,7 @@ pipeline {
                 echo 'Testing code for faults ...'
                 sh 'sudo apt-get update && sudo apt-get upgrade'
                 sh 'cd /home/ubuntu && sudo mkdir pipeline2 && cd pipeline2 && sudo touch sucess'
-                //sh 'echo "${env.BUILD_ID} on ${env.JENKINS_URL} is successful" >> /home/ubuntu/pipeline2/sucess'
+                echo "${env.BUILD_ID} on ${env.JENKINS_URL} is successful > /home/ubuntu/pipeline2/sucess"
                     
                 echo "Test succesfully run on ${env.BUILD_URL}"
 
@@ -26,7 +26,7 @@ pipeline {
         stage("Deploy") {
 
             steps {
-                echo "Deploying to staging to ${env.NODE_NAME} >> /home/ubuntu/pipeline2/sucess"
+                echo "Deploying to staging to ${env.NODE_NAME} > /home/ubuntu/pipeline2/sucess"
             }
         }
     }
