@@ -14,9 +14,11 @@ pipeline {
 
             steps {
                 echo 'Testing code for faults ...'
-                sh 'sudo apt-get update && sudo apt-get upgrade'
-                sh 'sudo rm -rf /home/ubuntu/pipeline2' //removes the dir if dir exists
-                sh "cd /home/ubuntu && sudo mkdir pipeline2 && cd pipeline2 && sudo touch sucess < 'echo Test run sucessfully"
+                sh '''
+                sudo apt-get update && sudo apt-get upgrade
+                sudo rm -rf /home/ubuntu/pipeline2' //removes the dir if dir exists
+                cd /home/ubuntu && sudo mkdir pipeline2 && cd pipeline2 && sudo touch sucess < 'echo Test run sucessfully
+                '''
 
                 echo "${env.BUILD_ID} on ${env.JENKINS_URL}"
                     
