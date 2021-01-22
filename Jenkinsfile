@@ -31,7 +31,7 @@ pipeline {
             steps {
                 echo "${env.NODE_NAME} has been deployed successfully after ${env.BUILD_ID} tries" 
                 sh '''#!/bin/bash
-                        echo Deployment was successful | sudo tee -a /home/ubuntu/pipeline2/success.txt
+                        echo Deployment was successful | tee -a /home/ubuntu/pipeline2/success.txt
                 '''
             }
         }
