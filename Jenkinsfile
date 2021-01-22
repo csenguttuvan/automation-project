@@ -30,7 +30,9 @@ pipeline {
 
             steps {
                 echo "${env.NODE_NAME} has been deployed successfully after ${env.BUILD_ID} tries" 
-                sh 'echo Deployment was successful > /home/ubuntu/pipeline2/sucess'
+                sh '''#!/bin/bash
+                echo "Deployment was successful > /home/ubuntu/pipeline2/sucess"
+                '''
             }
         }
     }
