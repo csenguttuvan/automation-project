@@ -1,23 +1,18 @@
 node {
-    //displays the colors using 'xterm' ans colour map
-    ansiColor('xterm') {
-
-        stage "\u001B[31mI'm Red\u001B[0m Now not"
-    }
-
-        stage "Create build output"
+    stage "Create build output"
 
         //Make output directory
 
-        sh "mkdir -p output"
+    sh "mkdir -p output"
 
         // Write a useful file that neds to be archived
 
-        writeFile file: "output/usefulfile.txt", text: "This file is useful"
+    writeFile file: "output/usefulfile.txt", text: "This file is useful"
 
-        stage "Archive build output"
+    stage "Archive build output"
 
-        archiveArtifacts artifacts: 'output/*.txt'
+  
+    archiveArtifacts artifacts: 'output/*.txt'
 
 
 }
